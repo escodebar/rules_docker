@@ -13,10 +13,9 @@ set -e
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-source ./testing/e2e/util.sh
+ROOT=$(git rev-parse --show-toplevel)
 
-# Must be invoked from the root of the repo.
-ROOT=$PWD
+source $ROOT/testing/e2e/util.sh
 
 function stop_containers() {
   docker rm -f $(docker ps -aq) > /dev/null 2>&1 || builtin true
